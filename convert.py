@@ -1,24 +1,7 @@
-import subprocess
+#import subprocess
 import os
 import sys
-
-#dir_name = sys.argv[1]
-#print( 'folder to read: {}'.format(dir_name) )
-
-def TerminalCommand(command, shell=True):
-    print( 'running command: ', command )
-    proc = subprocess.Popen(
-                            command,
-                            shell=shell,
-                            stdin=subprocess.PIPE,
-                            stdout=subprocess.PIPE,
-                            stderr=subprocess.PIPE,
-                           )
-    msg = 'running command: "{}"'.format(command).encode('utf-8')
-    stdout_value, stderr_value = proc.communicate(msg)
-
-    print('pass through:', repr(stdout_value.decode('utf-8')))
-    print('stderr      :', repr(stderr_value.decode('utf-8')))
+from TermCom import TerminalCommand
 
 def getFiles(directory, filetype='.evt'):
     cwd = os.getcwd()   # get current working directory
@@ -40,8 +23,7 @@ if __name__ == '__main__':
     indir = sys.argv[1]
     outdir = sys.argv[2]
     evtdir = '../evt2root/exec/'
-    d, files = getFiles( indir)
+    d, files = getFiles( indir )
     print( files )
     for f in files:
-        evt2rootCommand(f , indir, outdir, evtdir ) 
-        break
+        evt2rootCommand( f , indir, outdir, evtdir ) 
