@@ -22,7 +22,7 @@ def evt2rootCommand( filename, indir, outdir, evtdir ):
 if __name__ == '__main__':
     indir = sys.argv[1]
     outdir = sys.argv[2]
-    evtdir = '../evt2root/exec/'
+    evtdir = 'evt2root/exec/'
     d, files = getFiles( indir )
     print( files )
     for f in files:
