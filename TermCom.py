@@ -1,6 +1,6 @@
 import subprocess
 
-def TerminalCommand(command, shell=True):
+def TerminalCommand(command, shell=False):
     print( 'running command: ', command )
     proc = subprocess.Popen(
                             command,
